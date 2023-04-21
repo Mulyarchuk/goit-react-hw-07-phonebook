@@ -8,7 +8,7 @@ export const ContactListItem =({id,name,phone}) =>{
     const dispatch = useDispatch();
     return  (
         <li key={id} className={css.contactList__item}>
-            <p>{name}:{phone}</p>
+            <p>{name}: {phone}</p>
         <button type="button" value={id} className={css.contactList__button} onClick = {() => dispatch(deleteContacts(id))}>Delete</button>
         </li>)
 }
