@@ -1,6 +1,7 @@
 import css from './ContactForm.module.css';
 import { useDispatch, useSelector } from "react-redux";
-import { addPhones, getPhones } from "redux/phoneSlice";
+import { getPhones } from "redux/phoneSlice";
+import { addContacts } from 'redux/operations';
 
 export default function ContactForm (){
     
@@ -17,7 +18,7 @@ export default function ContactForm (){
         if(phones.some(phone => phone.name.toLowerCase() === name.toLowerCase())){
           return alert(`${name} is already in contacts `)
         }
-        dispatch(addPhones(name, number));
+        dispatch(addContacts(name, number));
         
         form.reset();
       };

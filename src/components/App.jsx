@@ -3,9 +3,16 @@ import  ContactForm  from "./ContactForm/ContactForm";
 import { ContactList } from "./ContactList/ContactList";
 import { Filter } from "./Filter/Filter";
 import { getPhones } from "redux/phoneSlice";
+import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { fetchContacts } from "redux/operations";
 
 export default function App () {
   const contacts = useSelector(getPhones);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(fetchContacts());
+  }, [dispatch]);
   
 
   return (
@@ -22,8 +29,8 @@ export default function App () {
       <h1>Phonebook</h1>
       <ContactForm />
       {contacts.length>0 ? <h2>Contacts</h2> : <h2>There are no contacts</h2>}
-      {contacts.length>0 &&  <Filter/>}
-      <ContactList/>
+        {contacts.length>0 &&  <Filter />}
+        <ContactList />
     </div>
   );
     };

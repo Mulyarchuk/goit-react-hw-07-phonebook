@@ -16,8 +16,8 @@ export const ContactList = () => {
     return(
         <ul className={css.contactList__list}>
             {filteredContacts.map(contact => {
-                const {name, number, id} = contact || {}
-                return <ContactListItem key = {id} name={name} number={number} id={id}/>
+                const {name, phone, id} = contact || {}
+                return <ContactListItem key = {id} name={name} phone={phone} id={id}/>
             })}
         </ul>
     )
